@@ -48,8 +48,10 @@ SH
 )
 
 WITH_CURL_CONFIGURE=""
+WITH_LDAP_CONFIGURE=""
 if [ -d '/app/.apt/usr' ] ; then
     WITH_CURL_CONFIGURE="--with-curl=/app/.apt/usr"
+    WITH_LDAP_CONFIGURE="--with-ldap=/app/.apt/usr"
 fi
 
 mkdir -p "/app/vendor/libwebp" \
@@ -77,6 +79,7 @@ ${ENABLE_GD_CONFIGURE} \
 --enable-shmop \
 --with-zip \
 ${WITH_CURL_CONFIGURE} \
+${WITH_LDAP_CONFIGURE} \
 ${libzip_flag} \
 --with-zlib=/app/vendor/php/zlib \
 --with-bz2 \
