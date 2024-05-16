@@ -192,6 +192,7 @@ function install_composer_deps() {
             --prefer-dist \
             --optimize-autoloader \
             --no-interaction \
+            --ignore-platform-req=ext-ldap \
             $devopt
         cd "$cwd"
     } | indent
