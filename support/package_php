@@ -47,12 +47,8 @@ install_zend_optimizer=$(cat <<SH
 SH
 )
 
-WITH_CURL_CONFIGURE=""
-WITH_LDAP_CONFIGURE=""
-if [ -d '/app/.apt/usr' ] ; then
-    WITH_CURL_CONFIGURE="--with-curl=/app/.apt/usr"
-    WITH_LDAP_CONFIGURE="--with-ldap=/app/.apt/usr"
-fi
+WITH_CURL_CONFIGURE="--with-curl=/app/.apt/usr"
+WITH_LDAP_CONFIGURE="--with-ldap=/app/.apt/usr"
 
 mkdir -p "/app/vendor/libwebp" \
   && curl "${PHP_BASE_URL}/package/libwebp-${webp_version}.tgz" | tar xzv -C /app/vendor/libwebp
