@@ -84,7 +84,7 @@ function install_composer_deps() {
     cp "$target/vendor/composer/bin/composer.phar" "$target/bin/composer.phar"
 
     # Update lockfile
-    composer -n update
+    "$target/bin/composer" -n update
 
     local required_extensions=$(jq --raw-output '.require // {} | keys | .[]' < "$BUILD_DIR/composer.json" | grep '^ext-' | sed 's/^ext-//')
 
